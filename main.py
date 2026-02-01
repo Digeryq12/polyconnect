@@ -2,8 +2,10 @@ import os
 from dotenv import load_dotenv
 import discord
 
-token = None
-intents = None
-client = discord.Client()
+load_dotenv()
+token = os.getenv("BOT_TOKEN")
+intents = discord.Intents.all()
 
-client.run()
+client = discord.Client(intents=intents)
+
+client.run(token=token)
